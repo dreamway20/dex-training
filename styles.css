@@ -62,3 +62,16 @@
     text-align: center;
     margin-top: 20px;
   }
+
+  .indicator span{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #fff;
+    border: 1px #000 solid;
+    display: inline-block;
+  }
+
+  .indicator span.active{
+    background-color: #545454;
+  }

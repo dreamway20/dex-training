@@ -16,12 +16,7 @@ const games = [
       guest: { name: 'Utah Jazz', logo: './images/UTAH_JAZZ.svg', points: 99 },
     },
   ];
-  const indicators =[
-    {
-      active: {value: './images/page2.png'},
-      passive: {value: './images/page.png'},
-    }
-  ]
+  
   let currentIndex = 0;
   
   const getNewIndex = (index) => index === games.length - 1 ? 0 : index + 1;
@@ -30,7 +25,12 @@ const games = [
   const showNextGame = (index) => {
     const banner = document.getElementById('banner');
     const game = games[index];
-    const indicator = indicators[index];
+    const spans = document.getElementById('indicator').getElementsByTagName('span');
+
+    for(let i = 0; i < spans.length; i++){
+      let span = spans[i]
+      span.className = i == index ? 'active' : ''
+    }
   
     banner.innerHTML = ` 
       <img src="${game.home.logo}" alt="Логотип клуба ${game.home.name}">
