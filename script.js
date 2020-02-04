@@ -51,9 +51,19 @@ prevButton.addEventListener('click', () => {
   showNewGame(newIndex);
 })
 
-  games.forEach((_, index) => addGameToBanner(index)); 
+games.forEach((_, index) => addGameToBanner(index));
 
-  document.addEventListener('keydown', (event) => {
-    if (event.keyCode === KEY_CODES.leftArrow) showNewGame(decreaseIndex(currentIndex))
-    if (event.keyCode === KEY_CODES.rightArrow) showNewGame(increaseIndex(currentIndex))
-  })
+document.addEventListener('keydown', (event) => {
+  if (event.keyCode === KEY_CODES.leftArrow) showNewGame(decreaseIndex(currentIndex))
+  if (event.keyCode === KEY_CODES.rightArrow) showNewGame(increaseIndex(currentIndex))
+})
+  
+  //var hammer = new Hammer(document.querySelector('.banner'));
+  //var $banner = $(".banner").banner({"interval":0});
+  //hammer.get("swipe");
+  //hammer.on("swipeleft", function(){
+    //  $banner.indicator("next");
+  //});
+  //hammer.on("swiperight", function(){
+  //    $bannerl.indicator("prev");
+  //});
