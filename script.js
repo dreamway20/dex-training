@@ -20,8 +20,8 @@ const addGameToBanner = (index) => {
       onclick="showNewGame(${index})"
     >
     </button>`;
-}
-
+  }
+    
 const showNewGame = (newIndex) => {
   // update state
   currentIndex = newIndex;
@@ -57,7 +57,21 @@ document.addEventListener('keydown', (event) => {
   if (event.keyCode === KEY_CODES.leftArrow) showNewGame(decreaseIndex(currentIndex))
   if (event.keyCode === KEY_CODES.rightArrow) showNewGame(increaseIndex(currentIndex))
 })
-  
+
+const movement = () => {
+  const intervalId = setInterval(() => {
+    if (currentIndex <= games.length - 2) {
+      currentIndex++;
+      showNewGame(currentIndex)}
+      else {
+        currentIndex = -1}
+    
+  }, 3000);
+  return () => clearInterval(intervalId);
+};
+movement(); 
+
+
   //var hammer = new Hammer(document.querySelector('.banner'));
   //var $banner = $(".banner").banner({"interval":0});
   //hammer.get("swipe");
