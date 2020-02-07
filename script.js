@@ -58,6 +58,35 @@ document.addEventListener('keydown', (event) => {
   if (event.keyCode === KEY_CODES.rightArrow) showNewGame(increaseIndex(currentIndex))
 })
 
+
+const swipe = () => {
+let startX=0, endX=0 
+let banners = document.querySelectorAll('.banner-container');
+if (banners) {
+  banners.forEach(res => {
+    res.addEventListener('touchstart',ts,false);
+    res.addEventListener('touchend',te,false);
+  })
+}
+function ts(e){
+ e.preventDefault();
+ startX = e.touches[0].clientX;
+  };
+
+function te(e){
+  let index = currentIndex
+  endX = e.changedTouches[0].clientX;
+    if (endX > startX) {
+       index--;}
+      else {
+       index++;}
+    if (index >= 0 && index <= games.length - 1 && index !== currentIndex) {
+      currentIndex = index;
+      showNewGame(currentIndex)};
+ };
+};
+swipe();
+
 const movement = () => {
   const intervalId = setInterval(() => {
     if (currentIndex <= games.length - 2) {
@@ -65,19 +94,7 @@ const movement = () => {
       showNewGame(currentIndex)}
       else {
         currentIndex = -1}
-    
   }, 3000);
   return () => clearInterval(intervalId);
 };
 movement(); 
-
-
-  //var hammer = new Hammer(document.querySelector('.banner'));
-  //var $banner = $(".banner").banner({"interval":0});
-  //hammer.get("swipe");
-  //hammer.on("swipeleft", function(){
-    //  $banner.indicator("next");
-  //});
-  //hammer.on("swiperight", function(){
-  //    $bannerl.indicator("prev");
-  //});
