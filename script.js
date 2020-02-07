@@ -1,4 +1,5 @@
 let currentIndex = 0;
+let pause = 0;
 
 const addGameToBanner = (index) => {
   const banner = document.getElementById('banner');
@@ -13,15 +14,15 @@ const addGameToBanner = (index) => {
     </div>`;
 
   const isCurrent = index === currentIndex;
-  indicators.innerHTML += 
+  indicators.innerHTML +=
     `<button
       class="indicator ${isCurrent ? 'is-current' : ''}"
       tabindex="${isCurrent ? -1 : 0}"
       onclick="showNewGame(${index})"
     >
     </button>`;
-  }
-    
+}
+
 const showNewGame = (newIndex) => {
   // update state
   currentIndex = newIndex;
@@ -60,41 +61,52 @@ document.addEventListener('keydown', (event) => {
 
 
 const swipe = () => {
-let startX=0, endX=0 
-let banners = document.querySelectorAll('.banner-container');
-if (banners) {
-  banners.forEach(res => {
-    res.addEventListener('touchstart',ts,false);
-    res.addEventListener('touchend',te,false);
-  })
-}
-function ts(e){
- e.preventDefault();
- startX = e.touches[0].clientX;
+  let startX = 0, endX = 0
+  let banners = document.querySelectorAll('.banner-container');
+  if (banners) {
+    banners.forEach(res => {
+      res.addEventListener('touchstart', ts, false);
+      res.addEventListener('touchend', te, false);
+    })
+  }
+  function ts(e) {
+    let pause = 1;
+    e.preventDefault();
+    startX = e.touches[0].clientX;
   };
 
-function te(e){
-  let index = currentIndex
-  endX = e.changedTouches[0].clientX;
+  function te(e) {
+
+    let index = currentIndex
+    endX = e.changedTouches[0].clientX;
     if (endX > startX) {
-       index--;}
-      else {
-       index++;}
+      index--;
+    }
+    else {
+      index++;
+    }
     if (index >= 0 && index <= games.length - 1 && index !== currentIndex) {
       currentIndex = index;
-      showNewGame(currentIndex)};
- };
+      showNewGame(currentIndex)
+    };
+  };
+  let pause = 0;
 };
 swipe();
 
+
 const movement = () => {
   const intervalId = setInterval(() => {
-    if (currentIndex <= games.length - 2) {
-      currentIndex++;
-      showNewGame(currentIndex)}
+    if (pause == 0) {
+      if (currentIndex <= games.length - 2) {
+        currentIndex++;
+        showNewGame(currentIndex)
+      }
       else {
-        currentIndex = -1}
+        currentIndex = -1
+      };
+    }
   }, 3000);
   return () => clearInterval(intervalId);
 };
-movement(); 
+movement();
