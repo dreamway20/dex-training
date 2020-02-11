@@ -1,0 +1,77 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+.container {
+  background: linear-gradient(to left, #FFFFFF, #ECE9E6);
+  height: 100%;
+ 
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.banner {
+  background-color: #FFFFFF;
+  box-shadow: -2px 4px 7px rgba(169, 169, 169, 0.25);
+}
+
+.banner-container {
+  display: flex;
+  align-items: center;
+  padding: 40px 20px;
+}
+
+.banner-container > img {
+  width: 200px;
+  height: 200px;
+}
+
+.banner-container > p {
+  color: #545454;
+  font-size: 110px;
+  font-family: Yanone Kaffeesatz, sans-serif;
+  line-height: 121px;
+  margin: 0 50px;
+}
+
+.controls {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.controls > button {
+  border: 1px solid #545454;
+  box-sizing: border-box;
+  border-radius: 4px;
+  background-color: transparent;
+  padding: 10px 32px;
+
+  font-weight: bold;
+  font-family: Yanone Kaffeesatz, sans-serif;
+  line-height: 18px;
+  text-transform: uppercase;
+  color: #545454;
+}
+.indicator {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.indicator span{
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #fff;
+  border: 1px #000 solid;
+  display: inline-block;
+}
+
+.indicator span.active{
+  background-color: #545454;
+}
