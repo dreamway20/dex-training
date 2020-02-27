@@ -2,3 +2,14 @@
   display: flex;
   height: 100vh;
 }
+
+.home {
+  width: 974px;
+  height: 151px;
+  margin: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 16px;
+  line-height: 30px;
+ }
