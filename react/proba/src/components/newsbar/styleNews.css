@@ -22,10 +22,12 @@
   }
 
   .menu-news {
+    flex: 1;
+    border-right: 1px solid var(--base-border);
     list-style: none;
-    padding: 0;
+    padding: 10px 0px 0px 0px;
     margin: 0;
-    
+    width: 234px;
     border-radius: 4px 4px 0px 0px;
     display: flex;
     flex-direction: column;

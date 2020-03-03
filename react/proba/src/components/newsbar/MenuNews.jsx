@@ -3,7 +3,7 @@ import { News } from "./News";
 
 
 export function MenuNews({active, children, ...restProps}) {
-    const className=`news ${active == 1 ? 'active' : ''}`;
+    const className=`news ${active ? 'active' : ''}`;
 
     return (
         <a className={className}{...restProps}>
