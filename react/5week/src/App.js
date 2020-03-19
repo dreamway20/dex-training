@@ -1,6 +1,5 @@
 import React from 'react';
 import './App.css';
-import { Counter } from './homework2.js';
 
 function FuncComponent() {
   const [count, setCount] = React.useState(0);
@@ -43,11 +42,9 @@ function App() {
     <div>
       <button onClick={() => setState(!state)}>toggle to {state ? 'class' : 'function'}</button>
       {state ? <FuncComponent /> : <ClassComponent />}
-
-      <p> второе задание <Counter /></p>
     </div>
 
-    )
+  )
 }
 
 export default App;
