@@ -6,9 +6,9 @@ function Counter() {
 
   useEffect(() => {
     const id = setInterval(() => {
-      setCount(count + 1);           //второй вариант (count => count + 1)
+      setCount(count + 1);           //второй вариант: заменить (count + 1) на (count => count + 1)
       return () => clearInterval(id);
-    }, []);                           //первый вариант [count]
+    }, []);                           //первый вариант: заменить [] на [count]
 
     return <h1>{count}</h1>;
   });
